@@ -6,9 +6,10 @@ public class CameraController : MonoBehaviour
 {
     public Transform player;
     public Vector3 offset;
+    public float moveSpeed;
 
     void Update()
     {
-        transform.position = player.position + offset;
+        transform.position = Vector3.Lerp(transform.position, player.position + offset, moveSpeed * Time.deltaTime);
     }
 }
